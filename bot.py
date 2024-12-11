@@ -3,7 +3,6 @@ import telebot
 my_token = '7981655177:AAELJu8NNJJhCsYNsJIhCTtNWhKjqMH9Ga8'
 bot = telebot.TeleBot(my_token)
 
-# Словарь для хранения истории вычислений пользователей
 uh = {}
 
 
