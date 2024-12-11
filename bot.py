@@ -5,10 +5,9 @@ bot = telebot.TeleBot(my_token)
 
 uh = {}
 
-
 @bot.message_handler(commands=['start'])
 def start(message):
-    bot.reply_to(message, "Отправь команду /calculate <пример>.\nСложение: a+a\nВычитание: a-a\nУмножение: a*a\nДеление: a/a\nСтепень: a**a")
+    bot.reply_to(message, "Отправь команду /calculate <пример>.\nСложение: a+a\nВычитание: a-a\nУмножение: a*a\nДеление: a/a\nСтепень: a**a\n\nЧтобы сравнить числа введите /sravni <число> <число>")
 
 
 
@@ -31,7 +30,6 @@ def calculate(message):
 
 @bot.message_handler(commands=['sravni'])
 def sravni(message):
-    usid = message.from_user.id
     numbers = message.text.split('/sravni ', 1)[1].split()
     if len(numbers) < 2:
         bot.reply_to(message, "Введите 2 числа после команды")
@@ -54,7 +52,7 @@ def history(message):
         hisli = "\n".join(uh[usid])
         bot.reply_to(message, f"Ваша история вычислений:\n{hisli}")
     else:
-        bot.reply_to(message, "История вычислений пуста.")
+        bot.reply_to(message, "История вычислений пустая")
 
 
 bot.polling()
