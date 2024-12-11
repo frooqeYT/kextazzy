@@ -18,4 +18,9 @@ def calculate(message):
     except Exception as e:
         bot.reply_to(message, f"Ошибка: {str(e)}")
 
+bot.message_handler(commands=['sravni'])
+def sravni(message):
+    cal = message.text.split('/sravni ', 1)[1]
+    result
+
 bot.polling()
