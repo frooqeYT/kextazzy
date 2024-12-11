@@ -5,7 +5,7 @@ bot = telebot.TeleBot(my_token)
 
 @bot.message_handler(commands=['start'])
 def start(message):
-    bot.reply_to(message, "Отправь команду /calculate <пример>.\nСложение: a+a\nВычитание: a-a\nУмножение: a*a\nДеление: a/a\nСтепень: a**a\n\nДля сравнения используйте /sravni")
+    bot.reply_to(message, "Отправь команду /calculate <пример>.\nСложение: a+a\nВычитание: a-a\nУмножение: a*a\nДеление: a/a\nСтепень: a**a")
 
 @bot.message_handler(commands=['calculate'])
 def calculate(message):
