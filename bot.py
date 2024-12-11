@@ -20,7 +20,25 @@ def calculate(message):
 
 bot.message_handler(commands=['sravni'])
 def sravni(message):
-    cal = message.text.split('/sravni ', 1)[1]
-    result
+    try:
+        numbers = message.text.split('/sravni ', 1)[1].split()
+        if len(numbers) != 2:
+            raise ValueError("Необходимо ввести два числа.")
+
+        num1 = float(numbers[0])
+        num2 = float(numbers[1])
+
+        if num1 < num2:
+            result = f"{num1} меньше {num2}"
+        elif num1 > num2:
+            result = f"{num1} больше {num2}"
+        else:
+            result = f"{num1} равно {num2}"
+
+        bot.reply_to(message, result)
+    except ValueError as ve:
+        bot.reply_to(message, f"Ошибка: {str(ve)}")
+    except Exception as e:
+        bot.reply_to(message, f"Ошибка: {str(e)}")
 
 bot.polling()
